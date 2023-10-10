@@ -1,0 +1,718 @@
+<!-- <link rel="stylesheet" href="styles.css"> -->
+
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    /* Carousel Styles */
+
+    .carousel {
+        height: 100%;
+        width: 1280px;
+        margin-top: 0px;
+        margin-bottom: 40px;
+        overflow-x: hidden;
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+
+    }
+
+    h1 {
+        color: #333
+    }
+
+    .carousel-inner {
+        height: 100%;
+        /* min-width: 400%; */
+        display: flex;
+        transition: all ease .5s;
+    }
+
+    .carousel-item {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .carousel-item h1 {
+        opacity: .5;
+    }
+
+    .carousel-controls .prev {
+        display: inline-block;
+        height: 32px;
+        width: 32px;
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url('prev.svg');
+        background-position: center;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        opacity: .5;
+    }
+
+    .carousel-controls .next {
+        display: inline-block;
+        height: 32px;
+        width: 32px;
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url('next.svg');
+        background-position: center;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        opacity: .5;
+    }
+
+    .prev:hover,
+    .next:hover {
+        opacity: 1;
+    }
+
+    .carousel-indicators {
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        /* transform: translateX(-50%); */
+        text-align: center;
+    }
+
+    .carousel-indicators span {
+        display: inline-block;
+        background-color: white;
+        width: 30px;
+        height: 4px;
+        border-radius: 2px;
+        opacity: .5;
+        cursor: pointer;
+        margin: 3px;
+    }
+
+    .carousel-indicators span.active {
+        opacity: 1;
+    }
+
+
+
+    /* Two Card Styles */
+
+    .two-card-container {
+        display: flex !important;
+        justify-content: space-evenly !important;
+        width: 1120px !important;
+        padding: 10px 10px 20px 10px !important;
+    }
+
+    .two-card {
+        width: 500px !important;
+    }
+
+    .two-card-img {
+        width: 500px !important;
+    }
+
+    .two-card-title {
+        color: #005A5A !important;
+        font-size: 28px !important;
+        line-height: 32px !important;
+        font-weight: bold !important;
+        padding: 20px 10px 10px 10px !important;
+        font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    }
+
+    .two-card-text {
+        color: #005A5A !important;
+        font-size: 16px !important;
+        line-height: 22px !important;
+        font-weight: 400 !important;
+        padding: 10px !important;
+        font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    }
+
+    .two-card-text-bold {
+        color: #005A5A !important;
+        font-size: 16px !important;
+        line-height: 22px !important;
+        font-weight: 700 !important;
+        padding: 10px !important;
+        font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    }
+
+    .two-card-sub-title {
+        color: #005A5A !important;
+        font-size: 16px !important;
+        line-height: 22px !important;
+        font-weight: 700 !important;
+        padding-left: 10px !important;
+        font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    }
+
+    .two-card-cta-link:link,
+    .two-card-cta-link:visited,
+    .two-card-cta-link:hover,
+    .two-card-cta-link:active {
+        color: #005A5A !important;
+    }
+
+
+
+
+    /* Events List Styles */
+
+    .flex-wrapper {
+        padding: 20px 2px 2px 2px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .flex-wrapper:nth-child(1) {
+        padding: 0px !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .events-card-container {
+        width: 1120px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-direction: column !important;
+        height: auto !important;
+        padding-bottom: 10px;
+    }
+
+
+    .events-card-heading-wrapper {
+        height: 75px !important;
+        width: 1120px;
+        text-align: left;
+        background-color: #005A5A !important;
+        color: #fff !important;
+        font-size: 48px !important;
+        align-items: center !important;
+        display: flex !important;
+
+    }
+
+    .events-card-heading {
+
+        font-weight: bold !important;
+        padding-left: 20px !important;
+        color: #fff !important;
+        font-size: 32px !important;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .padding-left-20 {
+        padding-left: 20px !important;
+    }
+
+    .events-card-row {
+        width: 1120px !important;
+        background-color: #005A5A !important;
+        font-size: 16px !important;
+        color: red !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        height: 50px !important;
+        margin-top: 1px !important;
+    }
+
+    .events-card-row:hover {
+        background-color: #008d8d !important;
+    }
+
+    .events-card-date-wrapper {
+        padding-left: 20px !important;
+        display: flex !important;
+        width: 280px !important;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .events-card-date {
+        font-size: 16px !important;
+        text-align: left !important;
+        font-weight: bold !important;
+        padding-left: 10px !important;
+        color: #fff !important;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .events-card-location {
+        width: 280px !important;
+        text-align: left !important;
+        font-weight: bold !important;
+        color: #fff !important;
+        font-size: 16px !important;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .events-card-time {
+        width: 280px !important;
+        font-size: 16px !important;
+        text-align: right !important;
+        font-weight: bold !important;
+        padding-right: 20px !important;
+        color: #fff !important;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .section-heading-wrapper {
+        width: 1120px !important;
+    }
+
+    .section-heading {
+        font-weight: bold !important;
+        padding-left: 42px !important;
+        color: #005A5A !important;
+        font-size: 52px !important;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    ul li {
+        color: #005A5A !important;
+        font-size: 16px !important;
+        line-height: 22px !important;
+        font-weight: 400 !important;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        list-style-type: disc !important;
+        list-style-position: inside !important;
+        padding: 0px 0 10px 30px !important;
+        text-indent: -1.4em !important;
+    }
+
+    .full-width-img {
+        width: 100% !important;
+        height: auto !important;
+        padding: 40px 0px;
+    }
+</style>
+
+<div style="color: black; font-family: Arial; font-size: 13px;">
+
+    <!-- Carousel Section -->
+    <div class="flex-wrapper">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <a href="https://eu.tdsynnex.com/selecta-gcc" target="_blank"><img src="https://eu.techdata.com/Nuploads/Country/COM/Images/EU_Website/GCC_Selecta_Banner_Intel-DCAI_1600x900.jpg" class="carousel-item" alt=""></a>
+                <img src="https://eu.techdata.com/Nuploads/Country/COM/Images/EU_Website/dcai-car1-new.jpg" class="carousel-item" alt="">
+                <img src="https://eu.techdata.com/Nuploads/Country/COM/Images/EU_Website/dcai-car3-new.jpg" class="carousel-item" alt="">
+                <img src="https://eu.techdata.com/Nuploads/Country/COM/Images/EU_Website/dcai-car4-new.PNG" class="carousel-item" alt="">
+            </div>
+            <div class="carousel-controls">
+                <span class="prev"></span>
+                <span class="next"></span>
+            </div>
+            <div class="carousel-indicators"></div>
+        </div>
+    </div>
+    <!-- End of carousel -->
+
+
+    <!-- Two Card Section -->
+
+    <div class="flex-wrapper">
+        <div class="section-heading-wrapper">
+            <h2 class="section-heading">Product Spotlight</h2>
+        </div>
+    </div>
+
+    <div class="flex-wrapper">
+        <div class="two-card-container"> <!--Parent-->
+            <div class="two-card"> <!-- Child -->
+                <img class="two-card-img" src="https://eu.techdata.com/Nuploads/Country/COM/Images/EU_Website/dcai-portfolio-expansion-img-web.jpg" alt="">
+                <h2 class="two-card-title">GCC Solution Services</h2>
+                <p class="two-card-text">The TD SYNNEX GCC team is proud to announce the expansion of our range of
+                    Solution Services for Intel
+                    DCAI partners. This expansion covers a wide range of specialised deliverables in the areas of:
+                    Solution
+                    Development (Design &amp; Supply), Solution Deployment (Integration &amp; Delivery and Solution
+                    Support.
+                    <br><br>
+                    The latest expansion makes the TD SYNNEX GCC services portfolio the most comprehensive of any Intel
+                    Distributor and with over 10 year’s experience of providing Intel server solutions, GCC’s technical
+                    expertise, consultative sales approach and unparalleled support structure provides our partners (and
+                    their customers) with a true ‘end-to-end’ delivery mechanism for the development, deployment and
+                    support
+                    of their Intel Enterprise environments.
+                </p>
+                <p class="two-card-text-bold">Check out the latest TD SYNNEX GCC Solution Services Portfolio <a class="two-card-cta-link" href="https://eu.techdata.com/Nuploads\Country\COM\Documents\EU_Website/GCC-Solution-Brief-Intel.pdf" target="_blank">HERE</a>
+                </p>
+            </div>
+            <div class="two-card"> <!-- Child -->
+                <img class="two-card-img" src="https://eu.techdata.com/Nuploads/Country/COM/Images/EU_Website/dcai-optical-transceivers-img-web.jpg" alt="">
+                <h2 class="two-card-title">Intel® Silicon Photonics</h2>
+                <p class="two-card-text">Intel® Silicon Photonics Optical Transceivers from TD SYNNEX are re-defining
+                    performance and scalability for data traffic. Bringing together the power of optics and the
+                    scalability of silicon, Intel® Silicon Photonics are a range of pluggable optical transceivers which
+                    can be incorporated into a wide range of Ethernet switches, routers and networking equipment.
+
+                </p>
+                <p class="two-card-sub-title">Key Features</p>
+
+                <ul>
+                    <li>Delivers optical connectivity on a single piece of silicon - reliable, scalable and cost
+                        effective</li>
+                    <li>Enables high bandwidth, software-configurable access to compute and storage devices</li>
+                    <li>Provides optical connectivity to other technologies:- Ethernet switches, Smart-NICs, and
+                        FPGAs
+                    </li>
+                    <li>Leverages the integrity of the Industry's leading optical transceiver brand - Intel®</li>
+                </ul>
+                <p>&nbsp;</p>
+                <p class="two-card-text-bold">Check out the latest GCC Silicon Photonics Solution Brief <a class="two-card-cta-link" href="https://eu.techdata.com/Nuploads\Country\COM\Documents\EU_Website/GCC-Silicon Photonics-Solution-Brief-Intel.pdf" target="_blank">HERE</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="flex-wrapper">
+        <a href="https://eu.tdsynnex.com/selecta-gcc" target="_blank"><img src="https://eu.techdata.com/Nuploads/Country/COM/Images/EU_Website/GCC_Selecta_Banner_Intel-DCAI_1280x400.jpg" class="full-width-img" alt=""></a>
+    </div>
+
+    <!-- Latest News Section -->
+
+    <div class="flex-wrapper">
+        <div class="section-heading-wrapper">
+            <h2 class="section-heading">Latest News</h2>
+        </div>
+    </div>
+
+    <!-- Two Card Section -->
+    <div class="flex-wrapper">
+        <div class="two-card-container"> <!--Parent-->
+            <div class="two-card"> <!-- Child -->
+                <a href="http://https://eu.tdsynnex.com/gcc/vendor/intelroadshow"><img class="two-card-img" src="https://eu.techdata.com/Nuploads/Country/COM/Images/GCC_Intel_roadshow_bannersV3_Website.jpg" alt=""></a>
+                <h2 class="two-card-title">TD SYNNEX European technical update sessions</h2>
+                <p class="two-card-text">TD SYNNEX are delighted to announce a series of Intel DCAI Partner roadshow
+                    events being held across Europe throughout May 2023. These half-day sessions (9am – 2pm local
+                    time) will be the perfect way for our partners to get the latest Intel DCAI product information and
+                    updates, and also get industry insights from the TD SYNNEX &amp; Intel team.
+                    <br><br>
+                    We’ll be covering a wide range of subjects on the day (full agenda will be confirmed in the next
+                    couple of weeks) and TD SYNNEX &amp; Intel staff will be on hand at all events to answer any
+                    specific
+                    questions you may have.
+                </p>
+                <p class="two-card-text-bold">Registration <a href="https://eu.tdsynnex.com/gcc/vendor/intelroadshow">HERE</a></p>
+            </div>
+            <div class="two-card"> <!-- Child -->
+                <img class="two-card-img" src="https://eu.techdata.com/Nuploads/Country/COM/Images/EU_Website/news-4thgen.jpg" alt="">
+                <h2 class="two-card-title">4th Gen Intel® Xeon® CPUs training</h2>
+                <p class="two-card-text">Join the Intel team for a product update session on the latest 4th Gen Intel®
+                    Xeon® CPUs ('Sapphire Rapids')</p>
+                <p class="two-card-text"> Speaker: Artur Bar - Sales &amp; Technologies Trainer for EMEA<br>Date: 28th
+                    March 2023<br>Time: 11am-12am CET (10am-11am BST)</p>
+                <p class="two-card-text">
+                    Register and attend the training session on 28th March to be in with a chance of winning a $50
+                    Amazon Gift card!&nbsp;Terms and conditions apply.&nbsp;Register TODAY&nbsp;
+                </p>
+                <p class="two-card-text-bold">Registration&nbsp;<a class="two-card-cta-link" href="https://events.teams.microsoft.com/event/7059f740-05ae-406f-8c86-96740fe68aa6@7fe14ab6-8f5d-4139-84bf-cd8aed0ee6b9">HERE</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- End of tow card section -->
+
+    <div class="flex-wrapper">
+        <div class="section-heading-wrapper">
+            <h2 class="section-heading">Upcoming Events</h2>
+        </div>
+    </div>
+
+    <div class="flex-wrapper">
+        <div class="events-card-container">
+            <div class="events-card-heading-wrapper">
+                <div class="events-card-heading"> TD SYNNEX Intel Tech Connect (ITC)</div>
+            </div>
+            <div class="events-card-row">
+                <div class="events-card-date-wrapper">
+                    <img class="pl-12" src="https://eu.techdata.com/Nuploads/Country/COM/Images/EU_Website/icons8-calendar-24.png" alt="">
+                    <div class="events-card-date">
+                        19th April
+                    </div>
+                </div>
+                <div class="events-card-location">
+                    Milan, IT</div>
+                <div class="events-card-location">
+                    TD SYNNEX Office</div>
+                <div class="events-card-time">
+                    09:00 - 14:00 (CET)
+                </div>
+            </div>
+            <div class="events-card-row">
+                <div class="events-card-date-wrapper">
+                    <img class="pl-12" src="https://eu.techdata.com/Nuploads/Country/COM/Images/EU_Website/icons8-calendar-24.png" alt="">
+                    <div class="events-card-date">25th April
+                    </div>
+                </div>
+                <div class="events-card-location">
+                    Barcelona, ES</div>
+                <div class="events-card-location">
+                    Majestic Hotel &amp; SPA</div>
+                <div class="events-card-time">
+                    09:00 - 14:00 (CET)
+                </div>
+            </div>
+            <div class="events-card-row">
+                <div class="events-card-date-wrapper">
+                    <img class="pl-12" src="https://eu.techdata.com/Nuploads/Country/COM/Images/EU_Website/icons8-calendar-24.png" alt="">
+                    <div class="events-card-date">
+                        4th May
+                    </div>
+                </div>
+                <div class="events-card-location">
+                    Paris, FR</div>
+                <div class="events-card-location">
+                    Sofitel Hotel</div>
+                <div class="events-card-time">
+                    09:00 - 14:00 (CET)
+                </div>
+            </div>
+            <div class="events-card-row">
+                <div class="events-card-date-wrapper">
+                    <img class="pl-12" src="https://eu.techdata.com/Nuploads/Country/COM/Images/EU_Website/icons8-calendar-24.png" alt="">
+                    <div class="events-card-date">
+                        9th May
+                    </div>
+                </div>
+                <div class="events-card-location">
+                    Frankfurt, DE</div>
+                <div class="events-card-location">
+                    JW Marriott Hotel Frankfurt</div>
+                <div class="events-card-time">
+                    09:00 - 14:00 (CET)
+                </div>
+            </div>
+            <div class="events-card-row">
+                <div class="events-card-date-wrapper">
+                    <img class="pl-12" src="https://eu.techdata.com/Nuploads/Country/COM/Images/EU_Website/icons8-calendar-24.png" alt="">
+                    <div class="events-card-date">
+                        11th May
+                    </div>
+                </div>
+                <div class="events-card-location">
+                    Hamburg, DE</div>
+                <div class="events-card-location">
+                    The Fontenay Hamburg</div>
+                <div class="events-card-time">
+                    09:00 - 14:00 (CET)
+                </div>
+            </div>
+            <div class="events-card-row">
+                <div class="events-card-date-wrapper">
+                    <img class="pl-12" src="https://eu.techdata.com/Nuploads/Country/COM/Images/EU_Website/icons8-calendar-24.png" alt="">
+                    <div class="events-card-date">8th June</div>
+                </div>
+                <div class="events-card-location">
+                    Birmingham, UK</div>
+                <div class="events-card-location">
+                    National Motorcycle Museum</div>
+                <div class="events-card-time">
+                    09:00 - 14:00 (BST)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- End of tow card section -->
+
+<!-- Carousel Script -->
+<script>
+
+
+    let carousel = document.querySelector('.carousel');
+
+    let carouselInner = document.querySelector('.carousel-inner');
+
+    let prev = document.querySelector('.carousel-controls .prev');
+
+    let next = document.querySelector('.carousel-controls .next');
+
+    let slides = document.querySelectorAll('.carousel-inner .carousel-item');
+
+    let totalSlides = slides.length;
+
+    let step = 100 / totalSlides;
+
+    let activeSlide = 0;
+
+    let activeIndicator = 0;
+
+    let direction = -1;
+
+    let jump = 1;
+
+    let interval = 2000;
+
+    let time;
+
+
+
+    //Init carousel
+    carouselInner.style.minWidth = (totalSlides * 100) + '%';
+    loadIndicators();
+    loop(true);
+
+
+    //Carousel events
+
+    next.addEventListener('click', () => {
+        slideToNext();
+    });
+
+    prev.addEventListener('click', () => {
+        slideToPrev();
+    });
+
+    carouselInner.addEventListener('transitionend', () => {
+        if (direction === -1) {
+            if (jump > 1) {
+                for (let i = 0; i < jump; i++) {
+                    activeSlide++;
+                    carouselInner.append(carouselInner.firstElementChild);
+                }
+            } else {
+                activeSlide++;
+                carouselInner.append(carouselInner.firstElementChild);
+            }
+        } else if (direction === 1) {
+            if (jump > 1) {
+                for (let i = 0; i < jump; i++) {
+                    activeSlide--;
+                    carouselInner.prepend(carouselInner.lastElementChild);
+                }
+            } else {
+                activeSlide--;
+                carouselInner.prepend(carouselInner.lastElementChild);
+            }
+        };
+
+        carouselInner.style.transition = 'none';
+        carouselInner.style.transform = 'translateX(0%)';
+        setTimeout(() => {
+            jump = 1;
+            carouselInner.style.transition = 'all ease .5s';
+        });
+        updateIndicators();
+    });
+
+    document.querySelectorAll('.carousel-indicators span').forEach(item => {
+        item.addEventListener('click', (e) => {
+            let slideTo = parseInt(e.target.dataset.slideTo);
+
+            let indicators = document.querySelectorAll('.carousel-indicators span');
+
+            indicators.forEach((item, index) => {
+                if (item.classList.contains('active')) {
+                    activeIndicator = index
+                }
+            })
+
+            if (slideTo - activeIndicator > 1) {
+                jump = slideTo - activeIndicator;
+                step = jump * step;
+                slideToNext();
+            } else if (slideTo - activeIndicator === 1) {
+                slideToNext();
+            } else if (slideTo - activeIndicator < 0) {
+
+                if (Math.abs(slideTo - activeIndicator) > 1) {
+                    jump = Math.abs(slideTo - activeIndicator);
+                    step = jump * step;
+                    slideToPrev();
+                }
+                slideToPrev();
+            }
+            step = 100 / totalSlides;
+        })
+    });
+
+    carousel.addEventListener('mouseover', () => {
+        loop(false);
+    })
+
+    carousel.addEventListener('mouseout', () => {
+        loop(true);
+    })
+
+    //Carousel functions
+
+    function loadIndicators() {
+        slides.forEach((slide, index) => {
+            if (index === 0) {
+                document.querySelector('.carousel-indicators').innerHTML +=
+                    `<span data-slide-to="${index}" class="active"></span>`;
+            } else {
+                document.querySelector('.carousel-indicators').innerHTML +=
+                    `<span data-slide-to="${index}"></span>`;
+            }
+        });
+    };
+
+    function updateIndicators() {
+        if (activeSlide > (totalSlides - 1)) {
+            activeSlide = 0;
+        } else if (activeSlide < 0) {
+            activeSlide = (totalSlides - 1);
+        }
+        document.querySelector('.carousel-indicators span.active').classList.remove('active');
+        document.querySelectorAll('.carousel-indicators span')[activeSlide].classList.add('active');
+    };
+
+    function slideToNext() {
+        if (direction === 1) {
+            direction = -1;
+            carouselInner.prepend(carouselInner.lastElementChild);
+        };
+
+        carousel.style.justifyContent = 'flex-start';
+        carouselInner.style.transform = `translateX(-${step}%)`;
+    };
+
+    function slideToPrev() {
+        if (direction === -1) {
+            direction = 1;
+            carouselInner.append(carouselInner.firstElementChild);
+        };
+        carousel.style.justifyContent = 'flex-end'
+        carouselInner.style.transform = `translateX(${step}%)`;
+    };
+
+    function loop(status) {
+        if (status === true) {
+            time = setInterval(() => {
+                slideToNext();
+            }, interval);
+        } else {
+            clearInterval(time);
+        }
+    }
+
+
+
+
+
+</script>
